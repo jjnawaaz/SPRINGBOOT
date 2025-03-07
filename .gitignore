@@ -1,6 +1,0 @@
-
-# Ignore Environment Variables
-.env
-
-# Ignore VS CODE
-.vscode
