@@ -1,7 +1,7 @@
 package com.SpringBootTutorial.SpringAppPractice1.service;
 
+import java.time.LocalDateTime;
 import java.util.List;
-import java.util.Optional;
 
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,17 +20,18 @@ public class StudentService {
         return studentRepo.findAll();
     }
 
-    // Get By User ID
-    public Student getStudentbyEmail(String email){
-        return studentRepo.findByEmail(email);
-    }
-
-    public Optional<Student> getStudentById(ObjectId id){
-        return studentRepo.findById(id);
+    public Student getStudentById(ObjectId id){
+        return studentRepo.findById(id).orElse(null);
     }
 
     // Post students service
     public Student saveStudent(Student student){
+        student.setDate(LocalDateTime.now());
         return studentRepo.save(student);
+    }
+
+    // Delete student by id
+    public void deleteStudent(ObjectId id){
+        studentRepo.deleteById(id);
     }
 }

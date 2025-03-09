@@ -1,6 +1,8 @@
 package com.SpringBootTutorial.SpringAppPractice1.models;
 
 
+import java.time.LocalDateTime;
+
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -14,13 +16,11 @@ public class Student {
     private String name;
     private String email;
 
+    private LocalDateTime date;
+
     // Constructors
     public Student() {}
 
-    public Student(String name, String email) {
-        this.name = name;
-        this.email = email;
-    }
 
     // Getters and Setters
     public ObjectId
@@ -32,5 +32,13 @@ public class Student {
 
     public String getEmail() { return email; }
     public void setEmail(String email) { this.email = email; }
+
+    public LocalDateTime getDate() {
+        return date;
+    }
+
+    public void setDate(LocalDateTime date) {
+        this.date = date;
+    }
 
 }
